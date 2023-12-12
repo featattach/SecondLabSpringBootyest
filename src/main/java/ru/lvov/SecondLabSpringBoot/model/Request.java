@@ -1,5 +1,6 @@
 package ru.lvov.SecondLabSpringBoot.model;
 
+import com.fasterxml.jackson.annotation.JsonEnumDefaultValue;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,15 +13,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Request {
     @NotBlank(message = "UID не может быть пустым")
-    @Size (max = 32, message = "Символов не должно быть больше 32")
+    @Size(max = 32, message = "Символов не должно быть больше 32")
     private String uid;
 
-    @NotBlank (message = "UID не может быть пустым")
-    @Size (max = 32, message = "Символов не должно быть больше 32")
+    @NotBlank(message = "operation UID не может быть пустым")
+    @Size(max = 32, message = "Символов не должно быть больше 32")
     private String operationUid;
+
     private Systems systemName;
 
-    @NotBlank (message = "UID не может быть пустым")
+    @NotBlank(message = "а со временем что?")
     private String systemTime;
     private String source;
 
@@ -31,13 +33,14 @@ public class Request {
     private int templatedID;
     private int productCode;
     private int smsCode;
+
     @Override
-    public String toString(){
+    public String toString() {
         return "{" +
                 "uid='" + uid + '\'' +
                 ", operationUid'" + operationUid + '\'' +
-                ", systemName'" + systemName +'\'' +
-                ", systemTime'" + systemTime +'\'' +
+                ", systemName'" + systemName + '\'' +
+                ", systemTime'" + systemTime + '\'' +
                 ", source'" + source + '\'' +
                 ", communicationID'" + communicationID + '\'' +
                 ", templatedID'" + templatedID + '\'' +
@@ -51,7 +54,6 @@ public class Request {
         ERP("Enterprise Resource Planning"),
         CRM("Customer Relationship Management"),
         WMS("Warehouse Management System");
-
         private final String description;
 
         Systems(String description) {
@@ -61,6 +63,9 @@ public class Request {
         public String getDescription() {
             return description;
         }
-    }
 
-}
+
+        }
+
+
+    }
